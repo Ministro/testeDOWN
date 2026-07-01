@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste Downdetector</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f5f5f5;
+            padding:40px;
+            text-align:center;
+        }
+
+        button{
+
+            padding:15px 35px;
+            font-size:18px;
+            cursor:pointer;
+
+        }
+
+        pre{
+
+            margin-top:30px;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            text-align:left;
+            max-width:900px;
+            margin-left:auto;
+            margin-right:auto;
+            overflow:auto;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Teste Downdetector</h1>
+
+<button onclick="consultar()">
+Consultar YouTube
+</button>
+
+<pre id="resultado">
+Aguardando...
+</pre>
+
+<script>
+
+async function consultar(){
+
+    document.getElementById("resultado").textContent="Consultando...";
+
+    const resposta = await fetch("/api/downdetector?servico=youtube");
+
+    const json = await resposta.json();
+
+    document.getElementById("resultado").textContent =
+        JSON.stringify(json,null,4);
+
+}
+
+</script>
+
+</body>
+
+</html>
