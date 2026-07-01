@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     const servico = req.query.servico || "youtube";
 
     const resposta = await fetch(
-      `https://downdetector.com/status/${servico}/`,
+      `https://downdetector.com.br/fora-do-ar/youtube/`,
       {
         headers: {
           "User-Agent":
