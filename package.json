@@ -1,11 +1,6 @@
 {
-  "name": "downdetector-test",
+  "name": "teste-down",
   "version": "1.0.0",
-  "dependencies": {
-    "express": "^4.19.2",
-    "playwright": "^1.55.0"
-  },
-  "scripts": {
-    "start": "node server.js"
-  }
+  "private": true,
+  "type": "module"
 }
