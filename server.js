@@ -1,27 +1,20 @@
 const express = require("express");
-const { verificar } = require("./scraper");
 
 const app = express();
 
 app.use(express.static("public"));
 
-app.get("/status", async (req, res) => {
-    try {
+app.get("/status", (req, res) => {
 
-        const dados = await verificar("youtube");
+    res.json({
+        sucesso: true,
+        mensagem: "Servidor funcionando!"
+    });
 
-        res.json(dados);
-
-    } catch (e) {
-
-        res.json({
-            erro: true,
-            mensagem: e.message
-        });
-
-    }
 });
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
     console.log("Servidor iniciado");
 });
